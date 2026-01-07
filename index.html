@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <style>
         html {
-            scroll-behavior: smooth; /* Enables smooth scrolling globally */
+            scroll-behavior: smooth;
         }
         body {
             margin: 0;
@@ -111,13 +111,51 @@
             margin: 20px auto;
         }
 
+        /* New Takeout Section – Vibrant & Inviting */
+        #takeout {
+            background: rgba(30, 10, 10, 0.6);
+            text-align: center;
+            border-radius: 20px;
+            padding: 80px 10%;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: 0 15px 40px rgba(255, 77, 77, 0.2);
+        }
+        #takeout h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+        #takeout p {
+            font-size: 1.3rem;
+            color: #ff9f9f;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #ff4d4d;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(255, 77, 77, 0.4);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #ffd700;
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
         .about, .contact {
             text-align: center;
             font-size: 1.1rem;
             color: #ccc;
         }
 
-        /* Vibrant Menu Section */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -159,10 +197,14 @@
             font-size: 1.1rem;
         }
 
-        /* Order & Contact styles remain elegant */
-        .order-form { /* ... your previous styles ... */ }
-        #receipt { /* ... */ }
-        .contact a { color: #ffd700; }
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.6);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        /* Keep your order form styles */
 
         footer {
             text-align: center;
@@ -173,10 +215,25 @@
             border-top: 1px solid #333;
         }
 
-        @keyframes wave { /* unchanged */ }
-        @keyframes sway { /* unchanged */ }
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            30% { transform: rotate(18deg); }
+            60% { transform: rotate(-12deg); }
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(8deg); }
+        }
 
-        @media (max-width: 768px) { /* unchanged */ }
+        @media (max-width: 768px) {
+            .header-container { gap: 20px; }
+            .box { padding: 20px; min-width: 180px; }
+            .cat-box img { width: 140px; }
+            .text-box h1 { font-size: 2.5rem; }
+            .lantern { width: 50px; top: 70px; }
+            #takeout h2 { font-size: 2.8rem; }
+            .cta-button { padding: 16px 40px; font-size: 1.3rem; }
+        }
     </style>
 </head>
 <body>
@@ -184,33 +241,79 @@
     <nav>
         <a href="#cute-header">Home</a>
         <a href="#about">About</a>
+        <a href="#takeout">Takeout</a>
         <a href="#menu">Menu</a>
         <a href="#order">Order</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <section id="cute-header">
-        <!-- Your cute header boxes and lanterns here (unchanged) -->
+        <img class="lantern lantern-left" src="https://www.shutterstock.com/image-vector/set-chinese-lanterns-banner-template-260nw-2666204345.jpg" alt="Red lantern">
+        <img class="lantern lantern-right" src="https://www.shutterstock.com/image-vector/set-chinese-lanterns-banner-template-260nw-2666204345.jpg" alt="Red lantern">
+
+        <div class="header-container">
+            <div class="box cat-box">
+                <img src="https://thumbs.dreamstime.com/b/maneki-neko-lucky-cat-kawaii-cute-cartoon-japanese-charm-fortune-smile-418150726.jpg" alt="Cute lucky cat">
+            </div>
+            <div class="box text-box">
+                <h1>Asian Bite ♡</h1>
+                <p>Bold Asian Fusion in Austin, Texas</p>
+            </div>
+        </div>
     </section>
 
-    <!-- About, Menu (now vibrant!), Order, Contact sections unchanged except menu -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Asian Bite brings fresh, bold Asian fusion flavors straight from our home kitchen to yours. Made with love and the finest ingredients — perfect for quick pickups and cozy nights in.</p>
+        <p>Home-based in Austin, TX ♡</p>
+    </section>
+
+    <!-- New Takeout Section -->
+    <section id="takeout">
+        <h2>Takeout & Pickup ♡</h2>
+        <p>Freshly made Asian bites ready for curbside pickup! Order online, we'll text you when it's hot and ready. Fast, easy, and delicious — just for Austin locals.</p>
+        <a href="#order" class="cta-button">Order Takeout Now</a>
+    </section>
 
     <section id="menu">
         <h2>Menu Highlights ♡</h2>
         <div class="menu-grid">
-            <!-- Your menu items -->
+            <div class="menu-item">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*ri3-NVdci8kIHiYMoK85_g.png" alt="Dumplings">
+                <h3>Dumplings & Wraps</h3>
+                <p>Steamed or fried pork dumplings, vegetable spring rolls</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://anastasiablogger.com/wp-content/uploads/2025/05/Japanese-Appetizers-862x539.jpg" alt="Sushi">
+                <h3>Sushi Rolls</h3>
+                <p>Spicy tuna roll, California roll, dragon roll</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://dinnerthendessert.com/wp-content/uploads/2025/10/Asian-Collection-like.webp" alt="Noodles">
+                <h3>Noodles & Bowls</h3>
+                <p>Pad Thai, ramen, beef stir-fry noodles</p>
+            </div>
         </div>
     </section>
 
-    <!-- ... rest of sections ... -->
+    <section id="order">
+        <h2>Place Your Order</h2>
+        <!-- You'll replace this later with Shopify Buy Button embed -->
+        <p>(Shopify ordering will go here ♡)</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Call or Text Us</h2>
+        <p><a href="tel:(512)555-1234">(512) 555-1234</a></p>
+        <p>Home-based in Austin, TX<br>Curbside pickup available!</p>
+    </section>
 
     <footer>
-        &copy; 2026 Asian Bite | Austin, Texas
+        &copy; 2026 Asian Bite ♡ Home Kitchen | Austin, Texas
     </footer>
 
-    <!-- Optional fallback JS for older browsers (smooth scrolling) -->
     <script>
-        // Fallback for browsers without native smooth scroll
+        // Fallback smooth scrolling for older browsers
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
