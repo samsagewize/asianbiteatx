@@ -4,94 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asian Bite - Austin, Texas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            color: #444;
             background-color: #fff;
             line-height: 1.6;
         }
         header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://www.architectandinteriorsindia.com/cloud/2025/12/02/LD87yilS-BOM04753-HDR-Edit-1200x800.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://thumbs.dreamstime.com/b/modern-bakery-interior-displays-many-fresh-pastries-sweet-cakes-pastel-pink-light-blue-decor-creates-cozy-inviting-space-bright-408122674.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #fff;
         }
         h1 {
-            font-size: 4rem;
+            font-size: 5rem;
             margin: 0;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #ff8fab;
+            font-weight: 600;
         }
         p.tagline {
-            font-size: 1.5rem;
-            margin: 10px 0 0;
+            font-size: 1.8rem;
+            margin: 20px 0 0;
+            color: #888;
+            font-weight: 300;
         }
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.9);
             padding: 15px 0;
             text-align: center;
             z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         nav a {
-            margin: 0 20px;
+            margin: 0 25px;
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+            color: #ff8fab;
+            font-weight: 600;
+            font-size: 1rem;
         }
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
             max-width: 1200px;
             margin: 0 auto;
         }
         h2 {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-transform: uppercase;
+            margin-bottom: 60px;
+            color: #ff8fab;
         }
         .about {
             text-align: center;
+            font-size: 1.2rem;
+            color: #666;
         }
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 50px;
         }
         .menu-item {
             text-align: center;
         }
         .menu-item img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
         .contact {
-            background: #f9f9f9;
+            background: #fff5f8;
             text-align: center;
+            border-radius: 20px;
+            padding: 80px 10%;
         }
         footer {
             text-align: center;
-            padding: 30px;
-            background: #111;
-            color: #fff;
+            padding: 40px;
+            background: #ffebef;
+            color: #888;
             font-size: 0.9rem;
         }
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            nav a { margin: 0 10px; font-size: 0.8rem; }
+            h1 { font-size: 3.5rem; }
+            p.tagline { font-size: 1.4rem; }
+            nav a { margin: 0 15px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -105,46 +113,46 @@
     </nav>
 
     <header id="home">
-        <h1>Asian Bite</h1>
-        <p class="tagline">Bold Asian Fusion in Austin, Texas</p>
+        <h1>Asian Bite ♡</h1>
+        <p class="tagline">Cute & cozy Asian fusion in Austin, Texas</p>
     </header>
 
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>Asian Bite brings fresh, bold Asian fusion flavors to the heart of Austin. Inspired by street food from across Asia, we serve bite-sized delights and hearty dishes made with local Texas ingredients. Minimalist vibes, maximum taste.</p>
-        <p>Located in vibrant Austin, TX — open for lunch, dinner, and late-night bites.</p>
+        <p>Asian Bite is your cozy spot in Austin for adorable bite-sized Asian delights ♡<br>
+        Fresh ingredients, bold flavors, and a whole lot of cuteness — all made with love.</p>
     </section>
 
     <section id="menu">
         <h2>Menu Highlights</h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <img src="https://miro.medium.com/v2/resize:fit:1400/1*ri3-NVdci8kIHiYMoK85_g.png" alt="Wrapped delights like dumplings and spring rolls">
-                <h3>Dumplings & Wraps</h3>
-                <p>Steamed or fried pork dumplings, vegetable spring rolls</p>
+                <img src="https://thumbs.dreamstime.com/b/cute-cartoon-dumplings-asian-style-desserts-facial-expressions-emotions-hand-drawn-illustrations-isolated-white-425651544.jpg" alt="Cute kawaii dumplings">
+                <h3>Dumplings & Wraps ♡</h3>
+                <p>Steamed or fried — super cute and delicious!</p>
             </div>
             <div class="menu-item">
-                <img src="https://anastasiablogger.com/wp-content/uploads/2025/05/Japanese-Appetizers-862x539.jpg" alt="Sushi rolls and small bites">
-                <h3>Sushi Rolls</h3>
-                <p>Spicy tuna roll, California roll, dragon roll</p>
+                <img src="https://thumbs.dreamstime.com/b/kawaii-japanese-food-set-cute-sushi-ramen-tempura-onigiri-colorful-featuring-adorable-cartoon-style-392581595.jpg" alt="Cute kawaii sushi and friends">
+                <h3>Sushi Rolls ♡</h3>
+                <p>Fresh rolls with a smile</p>
             </div>
             <div class="menu-item">
-                <img src="https://dinnerthendessert.com/wp-content/uploads/2025/10/Asian-Collection-like.webp" alt="Noodles and stir-fry dishes">
-                <h3>Noodles & Bowls</h3>
-                <p>Pad Thai, ramen, beef stir-fry noodles</p>
+                <img src="https://thumbs.dreamstime.com/z/cute-noodle-ramen-bowl-sushi-dumpling-set-cartoon-comic-characters-smiling-faces-happy-emoji-kawaii-style-asian-144241916.jpg" alt="Cute ramen and noodles">
+                <h3>Noodles & Bowls ♡</h3>
+                <p>Warm, comforting, and oh-so-adorable</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>Visit Us</h2>
+        <h2>Come Visit ♡</h2>
         <p>123 Rainey Street<br>Austin, TX 78701</p>
         <p>Phone: (512) 555-1234<br>Email: hello@asianbite.com</p>
         <p>Hours: Mon–Thu 11am–10pm | Fri–Sat 11am–12am | Sun 12pm–9pm</p>
     </section>
 
     <footer>
-        &copy; 2026 Asian Bite | Austin, Texas
+        &copy; 2026 Asian Bite ♡ Austin, Texas
     </footer>
 
 </body>
