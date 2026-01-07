@@ -7,6 +7,47 @@
     <title>Asian Bite - Austin, Texas</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <style>
+      html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: #e8e8e8;
+            background-color: #0f0f0f;
+            line-height: 1.7;
+            background-image: linear-gradient(to bottom, #0f0f0f 0%, #1a0a0a 100%);
+        }
+
+        /* Full-screen Hero with Ramen del Barrio-style background */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://www.shutterstock.com/image-photo/beautifully-arranged-bowl-ramen-featuring-260nw-2582365805.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        #hero .header-container {
+            z-index: 2;
+        }
+        #hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            margin: 0 0 10px;
+            color: #ffd700;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+        #hero p {
+            font-size: 1.6rem;
+            margin: 0;
+            color: #ff6b6b;
+            font-weight: 300;
+        }
+
+
+        
         html {
             scroll-behavior: smooth;
         }
@@ -323,4 +364,5 @@
 
 </body>
 </html>
+
 
