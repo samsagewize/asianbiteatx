@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asian Bite - Austin, Texas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Poppins', 'Noto Sans SC', sans-serif;
-            color: #333;
-            background-color: #fff;
+            color: #eee;
+            background-color: #000;
             line-height: 1.6;
+            background-image: url('https://thumbs.dreamstime.com/b/elegant-japanese-wave-pattern-background-red-black-floral-accents-traditional-minimalist-decorative-design-backdrop-392368760.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
         header {
             height: 100vh;
-            background: #fff url('https://img.freepik.com/free-vector/minimal-japanese-themed-red-gold-wave-background_1048-21531.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -24,79 +26,70 @@
             position: relative;
             overflow: hidden;
         }
-        .lantern-left {
-            position: absolute;
-            left: 10%;
-            top: 20%;
-            width: 100px;
-            animation: sway 6s ease-in-out infinite;
-        }
-        .lantern-right {
-            position: absolute;
-            right: 10%;
-            top: 20%;
-            width: 100px;
-            animation: sway 6s ease-in-out infinite reverse;
+        .lucky-cat {
+            width: 300px;
+            animation: wave 4s ease-in-out infinite;
+            z-index: 2;
         }
         h1 {
-            font-size: 5rem;
-            margin: 0;
-            color: #d40000;
+            font-size: 4.5rem;
+            margin: 20px 0 0;
+            color: #ff0000;
             font-weight: 700;
             letter-spacing: 0.1em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 0 0 20px rgba(255,0,0,0.5);
             z-index: 2;
         }
         p.tagline {
-            font-size: 1.8rem;
-            margin: 20px 0 40px;
-            color: #888;
+            font-size: 1.6rem;
+            margin: 10px 0 40px;
+            color: #aaa;
             z-index: 2;
         }
-        .floating-icons {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 800px;
-            z-index: 2;
-        }
-        .floating-icons img {
+        .floating-food {
+            position: absolute;
             width: 80px;
-            height: 80px;
-            object-fit: contain;
-            animation: float 4s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
+            opacity: 0.8;
         }
-        .floating-icons img:nth-child(2) { animation-delay: 0.5s; }
-        .floating-icons img:nth-child(3) { animation-delay: 1s; }
-        .floating-icons img:nth-child(4) { animation-delay: 1.5s; }
-        .floating-icons img:nth-child(5) { animation-delay: 2s; }
-        .floating-icons img:nth-child(6) { animation-delay: 2.5s; }
+        .floating-food:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-food:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
+        .floating-food:nth-child(3) { bottom: 25%; left: 15%; animation-delay: 2s; }
+        .floating-food:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 3s; }
+        .floating-food:nth-child(5) { top: 50%; left: 5%; animation-delay: 1.5s; }
+        .floating-food:nth-child(6) { top: 45%; right: 5%; animation-delay: 2.5s; }
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.95);
+            background: rgba(0,0,0,0.8);
             padding: 15px 0;
             text-align: center;
             z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
         }
         nav a {
-            margin: 0 25px;
+            margin: 0 30px;
             text-decoration: none;
-            color: #d40000;
+            color: #ff0000;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            transition: text-shadow 0.3s;
+        }
+        nav a:hover {
+            text-shadow: 0 0 10px #ff0000;
         }
         section {
-            padding: 100px 10%;
+            padding: 120px 10%;
             max-width: 1200px;
             margin: 0 auto;
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
+            transition: opacity 1.2s ease, transform 1.2s ease;
+            background: rgba(0,0,0,0.7);
+            border-radius: 20px;
+            margin-bottom: 50px;
         }
         section.visible {
             opacity: 1;
@@ -104,70 +97,77 @@
         }
         h2 {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 60px;
-            color: #d40000;
+            color: #ff0000;
+            text-shadow: 0 0 15px rgba(255,0,0,0.3);
             position: relative;
         }
         h2::after {
             content: '';
             display: block;
-            width: 100px;
-            height: 3px;
+            width: 120px;
+            height: 4px;
             background: gold;
             margin: 20px auto 0;
+            box-shadow: 0 0 10px gold;
         }
         .about {
             text-align: center;
             font-size: 1.2rem;
-            color: #666;
+            color: #ccc;
         }
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+            gap: 60px;
         }
         .menu-item {
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
         .menu-item:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: translateY(-15px);
+            filter: brightness(1.2) drop-shadow(0 0 20px #ff0000);
         }
         .menu-item img {
             width: 100%;
-            max-width: 300px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(212,0,0,0.1);
+            max-width: 320px;
+            border-radius: 50%;
+            border: 4px solid #ff0000;
+            box-shadow: 0 0 30px rgba(255,0,0,0.4);
         }
         .contact {
-            background: #fff5f5;
             text-align: center;
+            color: #ccc;
         }
         footer {
             text-align: center;
-            padding: 40px;
-            background: #d40000;
-            color: #fff;
+            padding: 50px;
+            background: #000;
+            color: #666;
             font-size: 0.9rem;
+            border-top: 2px solid #ff0000;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            50% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
         }
-        @keyframes sway {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            p.tagline { font-size: 1.4rem; }
-            .floating-icons img { width: 60px; height: 60px; }
-            .lantern-left, .lantern-right { width: 70px; top: 15%; }
+            h1 { font-size: 3rem; }
+            .lucky-cat { width: 200px; }
+            .floating-food { width: 60px; }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -179,24 +179,22 @@
     </nav>
 
     <header id="home">
-        <img class="lantern-left" src="https://png.pngtree.com/png-clipart/20190904/original/pngtree-beautiful-and-beautiful-lantern-png-image_4498220.jpg" alt="Red lantern">
-        <img class="lantern-right" src="https://png.pngtree.com/png-clipart/20190904/original/pngtree-beautiful-and-beautiful-lantern-png-image_4498220.jpg" alt="Red lantern">
+        <img class="lucky-cat" src="https://img.freepik.com/premium-vector/vector-illustration-maneki-neko-japanese-lucky-cat_1323048-45946.jpg" alt="Waving Lucky Cat">
         <h1>Asian Bite</h1>
-        <p class="tagline">Authentic Asian Flavors in Austin, Texas</p>
-        <div class="floating-icons">
-            <img src="https://png.pngtree.com/png-vector/20251011/ourlarge/pngtree-asian-food-icon-set-with-sushi-ramen-dumplings-and-soy-sauce-png-image_17688307.webp" alt="Asian food icons">
-            <img src="https://i.etsystatic.com/13188048/r/il/371799/3670150496/il_570xN.3670150496_3q79.jpg" alt="Kawaii ramen">
-            <img src="https://www.shutterstock.com/image-vector/set-cartoon-traditional-chinese-dumpling-600nw-2429947633.jpg" alt="Cute dumplings">
-            <img src="https://thumbs.dreamstime.com/b/kawaii-japanese-food-set-cute-sushi-ramen-tempura-onigiri-colorful-featuring-adorable-cartoon-style-392581595.jpg" alt="Kawaii sushi">
-            <img src="https://thumbs.dreamstime.com/b/cute-cartoon-bowl-noodles-kawaii-style-transparent-background-d-rendering-generated-ai-cute-cartoon-bowl-noodles-373048626.jpg" alt="Kawaii noodles">
-            <img src="https://i.etsystatic.com/13188048/r/il/419f84/1504364798/il_570xN.1504364798_gphu.jpg" alt="Fortune cookie">
-        </div>
+        <p class="tagline">Lucky Flavors in Austin, Texas</p>
+
+        <img class="floating-food" src="https://www.shutterstock.com/image-vector/set-cartoon-traditional-chinese-dumpling-600nw-2429947633.jpg" alt="Cute dumplings">
+        <img class="floating-food" src="https://i.etsystatic.com/13188048/r/il/371799/3670150496/il_570xN.3670150496_3q79.jpg" alt="Cute ramen">
+        <img class="floating-food" src="https://c8.alamy.com/comp/2KK45NK/cute-cartoon-dumplings-vector-drawing-traditional-japanese-dumplings-with-funny-smiling-faces-kawaii-asian-food-vector-2KK45NK.jpg" alt="Cute gyoza">
+        <img class="floating-food" src="https://i.etsystatic.com/13188048/r/il/419f84/1504364798/il_570xN.1504364798_gphu.jpg" alt="Cute fortune cookie">
+        <img class="floating-food" src="https://t.pimg.jp/049/583/682/1/49583682.jpg" alt="Cute sushi set">
+        <img class="floating-food" src="https://c8.alamy.com/comp/2KYMT4B/dumpling-and-gyoza-set-vector-drawing-traditional-japanese-dumplings-with-funny-smiling-faces-kawaii-asian-food-vector-2KYMT4B.jpg" alt="Cute dumpling set">
     </header>
 
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>Asian Bite brings the vibrant tastes of Asia to Austin with fresh, authentic bites inspired by traditions across the continent.<br>
-        From steaming dumplings to bold ramen — all crafted with care and a touch of luck ♡</p>
+        <p>Asian Bite invites good fortune with authentic, bite-sized delights inspired by timeless Asian traditions.<br>
+        Welcomed by our lucky cat, enjoy bold flavors in a nostalgic, minimalist space in Austin.</p>
     </section>
 
     <section id="menu">
@@ -205,17 +203,17 @@
             <div class="menu-item">
                 <img src="https://www.shutterstock.com/image-vector/set-cartoon-traditional-chinese-dumpling-600nw-2429947633.jpg" alt="Cute dumplings">
                 <h3>Dumplings & Wraps</h3>
-                <p>Steamed or pan-fried treasures</p>
+                <p>Fortunate folds of flavor</p>
             </div>
             <div class="menu-item">
-                <img src="https://thumbs.dreamstime.com/b/kawaii-japanese-food-set-cute-sushi-ramen-tempura-onigiri-colorful-featuring-adorable-cartoon-style-392581595.jpg" alt="Kawaii sushi">
+                <img src="https://i.etsystatic.com/22513038/r/il/0eeddf/4894174053/il_fullxfull.4894174053_b2qa.jpg" alt="Cute sushi">
                 <h3>Sushi Rolls</h3>
-                <p>Fresh and flavorful rolls</p>
+                <p>Fresh rolls of prosperity</p>
             </div>
             <div class="menu-item">
-                <img src="https://thumbs.dreamstime.com/b/cute-cartoon-bowl-noodles-kawaii-style-transparent-background-d-rendering-generated-ai-cute-cartoon-bowl-noodles-373048626.jpg" alt="Kawaii ramen">
+                <img src="https://i.etsystatic.com/13188048/r/il/371799/3670150496/il_570xN.3670150496_3q79.jpg" alt="Cute ramen">
                 <h3>Noodles & Bowls</h3>
-                <p>Warm, comforting classics</p>
+                <p>Warm, lucky comforts</p>
             </div>
         </div>
     </section>
@@ -232,7 +230,6 @@
     </footer>
 
     <script>
-        // Simple scroll animation for sections
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
