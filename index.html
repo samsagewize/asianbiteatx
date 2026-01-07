@@ -14,50 +14,9 @@
             line-height: 1.7;
             background-image: linear-gradient(to bottom, #0f0f0f 0%, #1a0a0a 100%);
         }
-        header {
-            height: 100vh;
-            background: #000 url('https://img.freepik.com/free-vector/elegant-black-background-with-golden-wave-lines_1017-33995.jpg') center/cover no-repeat;
-            background-blend-mode: overlay;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .lucky-cat {
-            width: 280px;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
-            animation: wave 5s ease-in-out infinite;
-        }
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5.5rem;
-            margin: 0 0 15px;
-            letter-spacing: 0.15em;
-            color: #ffd700; /* Gold */
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-        p.tagline {
-            font-size: 1.6rem;
-            margin: 0;
-            color: #ff4d4d;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-        }
-        .floating-icons {
-            position: absolute;
-            width: 70px;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.7;
-            filter: brightness(1.2);
-        }
-        .floating-icons:nth-child(1) { top: 15%; left: 12%; animation-delay: 0s; }
-        .floating-icons:nth-child(2) { top: 20%; right: 18%; animation-delay: 1.2s; }
-        .floating-icons:nth-child(3) { bottom: 28%; left: 18%; animation-delay: 2.4s; }
-        .floating-icons:nth-child(4) { bottom: 22%; right: 12%; animation-delay: 3.6s; }
+
+        /* Removed the full-screen header completely */
+        /* No header section anymore */
 
         nav {
             position: fixed;
@@ -83,6 +42,29 @@
             color: #ff4d4d;
         }
 
+        /* Hero title area - now the first visible section (no full-screen background image) */
+        #hero-title {
+            padding: 140px 10% 80px; /* Extra top padding to account for fixed nav */
+            text-align: center;
+            background: #000 url('https://img.freepik.com/free-vector/elegant-black-background-with-golden-wave-lines_1017-33995.jpg') center/cover no-repeat;
+            background-blend-mode: overlay;
+        }
+        #hero-title h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            margin: 0 0 15px;
+            letter-spacing: 0.15em;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        #hero-title p {
+            font-size: 1.6rem;
+            margin: 0;
+            color: #ff4d4d;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
         section {
             padding: 100px 10%;
             max-width: 1200px;
@@ -104,11 +86,13 @@
             background: #ff4d4d;
             margin: 20px auto;
         }
+
         .about, .contact {
             text-align: center;
             font-size: 1.1rem;
             color: #ccc;
         }
+
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -160,6 +144,7 @@
             border: 1px solid #444;
             color: #fff;
             border-radius: 6px;
+            box-sizing: border-box;
         }
         .order-form input[type="number"] {
             width: 80px;
@@ -180,6 +165,7 @@
             background: #ffd700;
             color: #000;
         }
+
         #receipt {
             margin-top: 40px;
             padding: 30px;
@@ -193,6 +179,8 @@
         .contact a {
             color: #ffd700;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
         }
         .contact a:hover {
             color: #ff4d4d;
@@ -207,20 +195,9 @@
             border-top: 1px solid #333;
         }
 
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg); }
-            30% { transform: rotate(18deg); }
-            60% { transform: rotate(-12deg); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(8deg); }
-        }
-
         @media (max-width: 768px) {
-            h1 { font-size: 3.8rem; }
-            .lucky-cat { width: 200px; }
-            .floating-icons { width: 55px; }
+            #hero-title h1 { font-size: 3.8rem; }
+            #hero-title p { font-size: 1.4rem; }
             nav a { margin: 0 15px; font-size: 0.9rem; }
             h2 { font-size: 2.8rem; }
         }
@@ -228,30 +205,126 @@
 </head>
 <body>
 
-    <!-- Your existing nav, header with lucky cat, sections (about, menu, order, contact), and script remain the same -->
-    <!-- Just paste your previous content inside the body, keeping this new <style> -->
-
     <nav>
-        <a href="#home">Home</a>
+        <a href="#hero-title">Home</a>
         <a href="#about">About</a>
         <a href="#menu">Menu</a>
         <a href="#order">Order</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <header id="home">
-        <img class="lucky-cat" src="https://thumbs.dreamstime.com/b/japanese-maneki-neko-lucky-cat-d-render-red-gold-fortune-figurine-good-luck-minimalist-background-modern-d-render-422097208.jpg" alt="Lucky Cat">
+    <!-- New minimal hero title section (replaces the old full-screen header) -->
+    <section id="hero-title">
         <h1>Asian Bite</h1>
-        <p class="tagline">Bold Asian Fusion in Austin, Texas</p>
+        <p>Bold Asian Fusion in Austin, Texas</p>
+    </section>
 
-        <!-- Your floating icons here -->
-    </header>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Asian Bite brings fresh, bold Asian fusion flavors to the heart of Austin. Inspired by street food from across Asia, we serve bite-sized delights and hearty dishes made with local Texas ingredients. Minimalist vibes, maximum taste.</p>
+        <p>Located in vibrant Austin, TX — open for lunch, dinner, and late-night bites.</p>
+    </section>
 
-    <!-- Keep all your sections (about, menu, order form, contact) as before -->
+    <section id="menu">
+        <h2>Menu Highlights</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*ri3-NVdci8kIHiYMoK85_g.png" alt="Dumplings and wraps">
+                <h3>Dumplings & Wraps</h3>
+                <p>Steamed or fried pork dumplings, vegetable spring rolls</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://anastasiablogger.com/wp-content/uploads/2025/05/Japanese-Appetizers-862x539.jpg" alt="Sushi rolls">
+                <h3>Sushi Rolls</h3>
+                <p>Spicy tuna roll, California roll, dragon roll</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://dinnerthendessert.com/wp-content/uploads/2025/10/Asian-Collection-like.webp" alt="Noodles and bowls">
+                <h3>Noodles & Bowls</h3>
+                <p>Pad Thai, ramen, beef stir-fry noodles</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="order">
+        <h2>Place Your Order</h2>
+        <form class="order-form" id="orderForm">
+            <label>
+                Dumplings & Wraps (Quantity):
+                <input type="number" name="dumplings" min="0" value="0">
+            </label>
+            <label>
+                Sushi Rolls (Quantity):
+                <input type="number" name="sushi" min="0" value="0">
+            </label>
+            <label>
+                Noodles & Bowls (Quantity):
+                <input type="number" name="noodles" min="0" value="0">
+            </label>
+            <label>
+                Name:
+                <input type="text" name="name" required>
+            </label>
+            <label>
+                Phone:
+                <input type="tel" name="phone" required>
+            </label>
+            <label>
+                Address / Delivery Notes:
+                <textarea name="address" rows="4" required></textarea>
+            </label>
+            <button type="submit">Place Order & Get Receipt</button>
+        </form>
+
+        <div id="receipt">
+            <h3>Your Receipt</h3>
+            <pre id="receiptText"></pre>
+            <p>We will text you payment details shortly.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Call Us Directly</h2>
+        <p><a href="tel:(512)555-1234">(512) 555-1234</a></p>
+        <p>123 Rainey Street<br>Austin, TX 78701</p>
+        <p>Hours: Mon–Thu 11am–10pm | Fri–Sat 11am–12am | Sun 12pm–9pm</p>
+    </section>
 
     <footer>
         &copy; 2026 Asian Bite | Austin, Texas
     </footer>
+
+    <script>
+        const form = document.getElementById('orderForm');
+        const receiptDiv = document.getElementById('receipt');
+        const receiptText = document.getElementById('receiptText');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const order = {
+                dumplings: formData.get('dumplings'),
+                sushi: formData.get('sushi'),
+                noodles: formData.get('noodles'),
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                address: formData.get('address'),
+                location: '123 Rainey Street, Austin, TX 78701',
+                timestamp: new Date().toLocaleString()
+            };
+
+            let orderDetails = `Order for ${order.name}\n\n`;
+            if (order.dumplings > 0) orderDetails += `Dumplings & Wraps × ${order.dumplings}\n`;
+            if (order.sushi > 0) orderDetails += `Sushi Rolls × ${order.sushi}\n`;
+            if (order.noodles > 0) orderDetails += `Noodles & Bowls × ${order.noodles}\n`;
+            orderDetails += `\nDelivery: ${order.address}\nPhone: ${order.phone}\nPickup Location: ${order.location}\nTime: ${order.timestamp}\n\nThank you! We'll text you shortly.`;
+
+            receiptText.textContent = orderDetails;
+            receiptDiv.style.display = 'block';
+
+            alert('Order received! Your text receipt is below.');
+        });
+    </script>
 
 </body>
 </html>
