@@ -1,116 +1,325 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asian Bite - Austin, Texas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            color: #f0f0f0;
-            background-color: #111;
-            line-height: 1.6;
+            color: #e8e8e8;
+            background-color: #0f0f0f;
+            line-height: 1.7;
+            background-image: linear-gradient(to bottom, #0f0f0f 0%, #1a0a0a 100%);
         }
 
-        /* Full-screen Hero like ramen sites */
-        #hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG_9914 (1).jpeg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            text-align: center;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+        }
+        nav a {
+            margin: 0 25px;
+            text-decoration: none;
+            color: #ffd700;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff4d4d;
+        }
+
+        #cute-header {
+            padding: 120px 10% 60px;
             text-align: center;
             position: relative;
         }
-        #hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .box {
+            background: rgba(30, 20, 20, 0.6);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 77, 77, 0.1);
+            backdrop-filter: blur(5px);
+            min-width: 220px;
+        }
+        .cat-box img {
+            width: 180px;
+            animation: wave 4s ease-in-out infinite;
+        }
+        .text-box h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin: 0 0 10px;
             color: #ffd700;
+            letter-spacing: 0.1em;
+        }
+        .text-box p {
+            font-size: 1.2rem;
             margin: 0;
-            text-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
-        #hero p {
-            font-size: 1.8rem;
             color: #ff6b6b;
-            margin: 20px 0;
+            font-weight: 300;
         }
-        .hero-cta {
-            padding: 18px 60px;
+
+        .lantern {
+            position: absolute;
+            width: 60px;
+            top: 80px;
+            animation: sway 5s ease-in-out infinite;
+        }
+        .lantern-left { left: 15%; }
+        .lantern-right { right: 15%; }
+
+        section {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            text-align: center;
+            font-size: 3.2rem;
+            margin-bottom: 60px;
+            color: #ffd700;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: #ff4d4d;
+            margin: 20px auto;
+        }
+
+        /* New Takeout Section – Vibrant & Inviting */
+        #takeout {
+            background: rgba(30, 10, 10, 0.6);
+            text-align: center;
+            border-radius: 20px;
+            padding: 80px 10%;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: 0 15px 40px rgba(255, 77, 77, 0.2);
+        }
+        #takeout h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+        #takeout p {
+            font-size: 1.3rem;
+            color: #ff9f9f;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
             background: #ff4d4d;
             color: #fff;
             font-size: 1.5rem;
+            font-weight: 600;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(255,77,77,0.5);
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 77, 77, 0.4);
+            transition: all 0.3s ease;
         }
-        .hero-cta:hover { background: #ffd700; color: #000; }
+        .cta-button:hover {
+            background: #ffd700;
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
 
-        /* Mobile Nav */
-        nav { /* same as previous mobile-friendly version */ }
-
-        section { padding: 100px 5%; text-align: center; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #ffd700; }
+        .about, .contact {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
         }
         .menu-item {
-            background: rgba(20,20,20,0.8);
-            padding: 30px;
+            text-align: center;
+            background: rgba(30, 20, 20, 0.8);
+            padding: 40px;
             border-radius: 20px;
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #ff4d4d33;
         }
-        .menu-item:hover { transform: scale(1.05); }
-        .menu-item img { width: 100%; border-radius: 15px; }
+        .menu-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(255, 77, 77, 0.3);
+            border-color: #ff4d4d;
+        }
+        .menu-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 3px solid #ffd70033;
+            transition: border 0.3s;
+        }
+        .menu-item:hover img {
+            border-color: #ff4d4d;
+        }
+        .menu-item h3 {
+            color: #ffd700;
+            margin: 25px 0 15px;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+        .menu-item p {
+            color: #ff8c8c;
+            font-size: 1.1rem;
+        }
 
-        footer { padding: 50px; background: #000; }
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.6);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        /* Keep your order form styles */
 
-        /* Add kawaii illustrations */
-        .kawaii { width: 100px; margin: 20px; animation: float 4s ease-in-out infinite; }
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: #000;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
 
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            30% { transform: rotate(18deg); }
+            60% { transform: rotate(-12deg); }
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(8deg); }
+        }
 
-        /* Mobile adjustments */
         @media (max-width: 768px) {
-            #hero h1 { font-size: 3.5rem; }
-            #hero p { font-size: 1.4rem; }
-            .hero-cta { padding: 14px 40px; font-size: 1.2rem; }
+            .header-container { gap: 20px; }
+            .box { padding: 20px; min-width: 180px; }
+            .cat-box img { width: 140px; }
+            .text-box h1 { font-size: 2.5rem; }
+            .lantern { width: 50px; top: 70px; }
+            #takeout h2 { font-size: 2.8rem; }
+            .cta-button { padding: 16px 40px; font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Mobile nav from previous -->
+    <nav>
+        <a href="#cute-header">Home</a>
+        <a href="#about">About</a>
+        <a href="#takeout">Takeout</a>
+        <a href="#menu">Menu</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    <section id="hero">
-        <h1>Asian Bite ♡</h1>
-        <p>Bold Asian Fusion Takeout in Austin</p>
-        <a href="#order" class="hero-cta">Order Online</a>
-    </section>
-
-    <section id="takeout">
-        <h2>Curbside Pickup & Takeout</h2>
-        <p>Fresh bites ready fast – text when you arrive!</p>
-        <img class="kawaii" src="https://i.etsystatic.com/13188048/r/il/419f84/1504364798/il_570xN.1504364798_gphu.jpg" alt="Kawaii food">
-        <img class="kawaii" src="https://i.etsystatic.com/37246462/r/il/7e8626/4554771623/il_fullxfull.4554771623_5s4c.jpg" alt="Kawaii ramen">
-        <img class="kawaii" src="https://thumbs.dreamstime.com/z/cute-noodle-ramen-bowl-sushi-dumpling-set-cartoon-comic-characters-smiling-faces-happy-emoji-kawaii-style-asian-144241916.jpg" alt="Kawaii dumplings">
-    </section>
-
-    <section id="menu">
-        <h2>Our Menu</h2>
-        <div class="menu-grid">
-            <!-- Your menu items with larger photos and descriptions -->
+        <div class="header-container">
+            <div class="box cat-box">
+                <img src="IMG_9914 (1).jpeg" alt="Cute lucky cat">
+            </div>
+            <div class="box text-box">
+                <h1>Asian Bite ♡</h1>
+                <p>Bold Asian Fusion in Austin, Texas</p>
+            </div>
         </div>
     </section>
 
-    <!-- Order, Contact, Footer -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Asian Bite brings fresh, bold Asian fusion flavors straight from our home kitchen to yours. Made with love and the finest ingredients — perfect for quick pickups and cozy nights in.</p>
+        <p>Home-based in Austin, TX ♡</p>
+    </section>
+
+    <!-- New Takeout Section -->
+    <section id="takeout">
+        <h2>Takeout & Pickup ♡</h2>
+        <p>Freshly made Asian bites ready for curbside pickup! Order online, we'll text you when it's hot and ready. Fast, easy, and delicious — just for Austin locals.</p>
+        <a href="#order" class="cta-button">Order Takeout Now</a>
+    </section>
+
+    <section id="menu">
+        <h2>Menu Highlights ♡</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="IMG_9602-removebg-preview.png" alt="Dumplings">
+                <h3>Dumplings & Wraps</h3>
+                <p>Steamed or fried pork dumplings, vegetable spring rolls</p>
+            </div>
+            <div class="menu-item">
+                <img src="IMG_0970-removebg-preview.png" alt="Ramen">
+                <h3>Sushi Rolls</h3>
+                <p>Spicy tuna roll, California roll, dragon roll</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://dinnerthendessert.com/wp-content/uploads/2025/10/Asian-Collection-like.webp" alt="Noodles">
+                <h3>Noodles & Bowls</h3>
+                <p>Pad Thai, ramen, beef stir-fry noodles</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="order">
+        <h2>Place Your Order</h2>
+        <!-- You'll replace this later with Shopify Buy Button embed -->
+      
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Call or Text Us</h2>
+        <p><a href="tel:(512)555-1234">(512) 555-1234</a></p>
+        <p>Home-based in Austin, TX<br>Curbside pickup available!</p>
+    </section>
+
+    <footer>
+        &copy; 2026 Asian Bite ♡ Home Kitchen | Austin, Texas
+    </footer>
+
+    <script>
+        // Fallback smooth scrolling for older browsers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
