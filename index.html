@@ -4,42 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asian Bite - Austin, Texas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            color: #444;
+            font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+            color: #333;
             background-color: #fff;
             line-height: 1.6;
         }
         header {
             height: 100vh;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://thumbs.dreamstime.com/b/modern-bakery-interior-displays-many-fresh-pastries-sweet-cakes-pastel-pink-light-blue-decor-creates-cozy-inviting-space-bright-408122674.jpg') center/cover no-repeat;
+            background: #fff url('https://img.freepik.com/free-vector/minimal-japanese-themed-red-gold-wave-background_1048-21531.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .lantern-left {
+            position: absolute;
+            left: 10%;
+            top: 20%;
+            width: 100px;
+            animation: sway 6s ease-in-out infinite;
+        }
+        .lantern-right {
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            width: 100px;
+            animation: sway 6s ease-in-out infinite reverse;
         }
         h1 {
             font-size: 5rem;
             margin: 0;
-            letter-spacing: 0.05em;
-            color: #ff8fab;
-            font-weight: 600;
+            color: #d40000;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            z-index: 2;
         }
         p.tagline {
             font-size: 1.8rem;
-            margin: 20px 0 0;
+            margin: 20px 0 40px;
             color: #888;
-            font-weight: 300;
+            z-index: 2;
         }
+        .floating-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            z-index: 2;
+        }
+        .floating-icons img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            animation: float 4s ease-in-out infinite;
+        }
+        .floating-icons img:nth-child(2) { animation-delay: 0.5s; }
+        .floating-icons img:nth-child(3) { animation-delay: 1s; }
+        .floating-icons img:nth-child(4) { animation-delay: 1.5s; }
+        .floating-icons img:nth-child(5) { animation-delay: 2s; }
+        .floating-icons img:nth-child(6) { animation-delay: 2.5s; }
+
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             padding: 15px 0;
             text-align: center;
             z-index: 10;
@@ -48,7 +86,7 @@
         nav a {
             margin: 0 25px;
             text-decoration: none;
-            color: #ff8fab;
+            color: #d40000;
             font-weight: 600;
             font-size: 1rem;
         }
@@ -56,12 +94,28 @@
             padding: 100px 10%;
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 60px;
-            color: #ff8fab;
+            color: #d40000;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: gold;
+            margin: 20px auto 0;
         }
         .about {
             text-align: center;
@@ -75,31 +129,43 @@
         }
         .menu-item {
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px) scale(1.05);
         }
         .menu-item img {
             width: 100%;
-            max-width: 400px;
-            height: auto;
+            max-width: 300px;
             border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 20px rgba(212,0,0,0.1);
         }
         .contact {
-            background: #fff5f8;
+            background: #fff5f5;
             text-align: center;
-            border-radius: 20px;
-            padding: 80px 10%;
         }
         footer {
             text-align: center;
             padding: 40px;
-            background: #ffebef;
-            color: #888;
+            background: #d40000;
+            color: #fff;
             font-size: 0.9rem;
         }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 3.5rem; }
             p.tagline { font-size: 1.4rem; }
-            nav a { margin: 0 15px; font-size: 0.9rem; }
+            .floating-icons img { width: 60px; height: 60px; }
+            .lantern-left, .lantern-right { width: 70px; top: 15%; }
         }
     </style>
 </head>
@@ -113,47 +179,71 @@
     </nav>
 
     <header id="home">
-        <h1>Asian Bite ♡</h1>
-        <p class="tagline">Cute & cozy Asian fusion in Austin, Texas</p>
+        <img class="lantern-left" src="https://png.pngtree.com/png-clipart/20190904/original/pngtree-beautiful-and-beautiful-lantern-png-image_4498220.jpg" alt="Red lantern">
+        <img class="lantern-right" src="https://png.pngtree.com/png-clipart/20190904/original/pngtree-beautiful-and-beautiful-lantern-png-image_4498220.jpg" alt="Red lantern">
+        <h1>Asian Bite</h1>
+        <p class="tagline">Authentic Asian Flavors in Austin, Texas</p>
+        <div class="floating-icons">
+            <img src="https://png.pngtree.com/png-vector/20251011/ourlarge/pngtree-asian-food-icon-set-with-sushi-ramen-dumplings-and-soy-sauce-png-image_17688307.webp" alt="Asian food icons">
+            <img src="https://i.etsystatic.com/13188048/r/il/371799/3670150496/il_570xN.3670150496_3q79.jpg" alt="Kawaii ramen">
+            <img src="https://www.shutterstock.com/image-vector/set-cartoon-traditional-chinese-dumpling-600nw-2429947633.jpg" alt="Cute dumplings">
+            <img src="https://thumbs.dreamstime.com/b/kawaii-japanese-food-set-cute-sushi-ramen-tempura-onigiri-colorful-featuring-adorable-cartoon-style-392581595.jpg" alt="Kawaii sushi">
+            <img src="https://thumbs.dreamstime.com/b/cute-cartoon-bowl-noodles-kawaii-style-transparent-background-d-rendering-generated-ai-cute-cartoon-bowl-noodles-373048626.jpg" alt="Kawaii noodles">
+            <img src="https://i.etsystatic.com/13188048/r/il/419f84/1504364798/il_570xN.1504364798_gphu.jpg" alt="Fortune cookie">
+        </div>
     </header>
 
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>Asian Bite is your cozy spot in Austin for adorable bite-sized Asian delights ♡<br>
-        Fresh ingredients, bold flavors, and a whole lot of cuteness — all made with love.</p>
+        <p>Asian Bite brings the vibrant tastes of Asia to Austin with fresh, authentic bites inspired by traditions across the continent.<br>
+        From steaming dumplings to bold ramen — all crafted with care and a touch of luck ♡</p>
     </section>
 
     <section id="menu">
         <h2>Menu Highlights</h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <img src="https://thumbs.dreamstime.com/b/cute-cartoon-dumplings-asian-style-desserts-facial-expressions-emotions-hand-drawn-illustrations-isolated-white-425651544.jpg" alt="Cute kawaii dumplings">
-                <h3>Dumplings & Wraps ♡</h3>
-                <p>Steamed or fried — super cute and delicious!</p>
+                <img src="https://www.shutterstock.com/image-vector/set-cartoon-traditional-chinese-dumpling-600nw-2429947633.jpg" alt="Cute dumplings">
+                <h3>Dumplings & Wraps</h3>
+                <p>Steamed or pan-fried treasures</p>
             </div>
             <div class="menu-item">
-                <img src="https://thumbs.dreamstime.com/b/kawaii-japanese-food-set-cute-sushi-ramen-tempura-onigiri-colorful-featuring-adorable-cartoon-style-392581595.jpg" alt="Cute kawaii sushi and friends">
-                <h3>Sushi Rolls ♡</h3>
-                <p>Fresh rolls with a smile</p>
+                <img src="https://thumbs.dreamstime.com/b/kawaii-japanese-food-set-cute-sushi-ramen-tempura-onigiri-colorful-featuring-adorable-cartoon-style-392581595.jpg" alt="Kawaii sushi">
+                <h3>Sushi Rolls</h3>
+                <p>Fresh and flavorful rolls</p>
             </div>
             <div class="menu-item">
-                <img src="https://thumbs.dreamstime.com/z/cute-noodle-ramen-bowl-sushi-dumpling-set-cartoon-comic-characters-smiling-faces-happy-emoji-kawaii-style-asian-144241916.jpg" alt="Cute ramen and noodles">
-                <h3>Noodles & Bowls ♡</h3>
-                <p>Warm, comforting, and oh-so-adorable</p>
+                <img src="https://thumbs.dreamstime.com/b/cute-cartoon-bowl-noodles-kawaii-style-transparent-background-d-rendering-generated-ai-cute-cartoon-bowl-noodles-373048626.jpg" alt="Kawaii ramen">
+                <h3>Noodles & Bowls</h3>
+                <p>Warm, comforting classics</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>Come Visit ♡</h2>
+        <h2>Visit Us</h2>
         <p>123 Rainey Street<br>Austin, TX 78701</p>
         <p>Phone: (512) 555-1234<br>Email: hello@asianbite.com</p>
         <p>Hours: Mon–Thu 11am–10pm | Fri–Sat 11am–12am | Sun 12pm–9pm</p>
     </section>
 
     <footer>
-        &copy; 2026 Asian Bite ♡ Austin, Texas
+        &copy; 2026 Asian Bite | Austin, Texas
     </footer>
+
+    <script>
+        // Simple scroll animation for sections
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
 
 </body>
 </html>
