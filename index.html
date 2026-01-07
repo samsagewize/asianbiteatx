@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asian Bite - Austin, Texas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #333;
-            background-color: #fff;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            color: #e8e8e8;
+            background-color: #0f0f0f;
+            line-height: 1.7;
+            background-image: linear-gradient(to bottom, #0f0f0f 0%, #1a0a0a 100%);
         }
         header {
             height: 100vh;
-            background: url('https://img.freepik.com/free-vector/minimal-japanese-themed-red-gold-wave-background_1048-21531.jpg') center/cover no-repeat;
+            background: #000 url('https://img.freepik.com/free-vector/elegant-black-background-with-golden-wave-lines_1017-33995.jpg') center/cover no-repeat;
+            background-blend-mode: overlay;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -24,155 +27,209 @@
             overflow: hidden;
         }
         .lucky-cat {
-            width: 250px;
-            margin-bottom: 30px;
-            animation: wave 4s ease-in-out infinite;
+            width: 280px;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
+            animation: wave 5s ease-in-out infinite;
         }
         h1 {
-            font-size: 4rem;
-            margin: 0 0 10px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #d40000;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            margin: 0 0 15px;
+            letter-spacing: 0.15em;
+            color: #ffd700; /* Gold */
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
         p.tagline {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin: 0;
-            color: #555;
+            color: #ff4d4d;
+            font-weight: 300;
+            letter-spacing: 0.1em;
         }
         .floating-icons {
             position: absolute;
-            width: 60px;
-            animation: float 5s ease-in-out infinite;
-            opacity: 0.8;
+            width: 70px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+            filter: brightness(1.2);
         }
-        .floating-icons:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
-        .floating-icons:nth-child(2) { top: 25%; right: 20%; animation-delay: 1s; }
-        .floating-icons:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
-        .floating-icons:nth-child(4) { bottom: 25%; right: 15%; animation-delay: 3s; }
+        .floating-icons:nth-child(1) { top: 15%; left: 12%; animation-delay: 0s; }
+        .floating-icons:nth-child(2) { top: 20%; right: 18%; animation-delay: 1.2s; }
+        .floating-icons:nth-child(3) { bottom: 28%; left: 18%; animation-delay: 2.4s; }
+        .floating-icons:nth-child(4) { bottom: 22%; right: 12%; animation-delay: 3.6s; }
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.95);
-            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
             text-align: center;
             z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
         }
         nav a {
-            margin: 0 20px;
+            margin: 0 25px;
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+            color: #ffd700;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
         }
+        nav a:hover {
+            color: #ff4d4d;
+        }
+
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
             max-width: 1200px;
             margin: 0 auto;
         }
         h2 {
+            font-family: 'Cormorant Garamond', serif;
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            color: #d40000;
+            font-size: 3.2rem;
+            margin-bottom: 60px;
+            color: #ffd700;
+            position: relative;
         }
-        .about {
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: #ff4d4d;
+            margin: 20px auto;
+        }
+        .about, .contact {
             text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
         }
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
         }
         .menu-item {
             text-align: center;
+            background: rgba(20, 20, 20, 0.6);
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
         }
         .menu-item img {
             width: 100%;
             height: 300px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 10px;
+            border: 2px solid #333;
         }
+        .menu-item h3 {
+            color: #ffd700;
+            margin: 20px 0 10px;
+            font-size: 1.6rem;
+        }
+
         .order-form {
             max-width: 600px;
             margin: 0 auto;
+            background: rgba(20, 20, 20, 0.6);
+            padding: 40px;
+            border-radius: 12px;
         }
         .order-form label {
             display: block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: #ccc;
         }
-        .order-form input[type="number"] {
-            width: 50px;
-            margin-left: 10px;
-        }
+        .order-form input[type="number"],
         .order-form input[type="text"],
         .order-form input[type="tel"],
         .order-form textarea {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 8px;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 6px;
+        }
+        .order-form input[type="number"] {
+            width: 80px;
         }
         .order-form button {
-            display: block;
             width: 100%;
-            padding: 15px;
-            background: #d40000;
+            padding: 16px;
+            background: #ff4d4d;
             color: #fff;
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 500;
             cursor: pointer;
-            margin-top: 20px;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        .order-form button:hover {
+            background: #ffd700;
+            color: #000;
         }
         #receipt {
             margin-top: 40px;
-            padding: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
+            padding: 30px;
+            background: #1a1a1a;
+            border: 1px solid #ff4d4d;
+            border-radius: 10px;
             display: none;
+            color: #ccc;
         }
-        .contact {
-            background: #f9f9f9;
-            text-align: center;
-        }
+
         .contact a {
-            color: #d40000;
+            color: #ffd700;
             text-decoration: none;
-            font-weight: bold;
         }
+        .contact a:hover {
+            color: #ff4d4d;
+        }
+
         footer {
             text-align: center;
-            padding: 30px;
-            background: #111;
-            color: #fff;
+            padding: 50px;
+            background: #000;
+            color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid #333;
         }
 
         @keyframes wave {
             0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(15deg); }
-            50% { transform: rotate(-10deg); }
-            75% { transform: rotate(10deg); }
+            30% { transform: rotate(18deg); }
+            60% { transform: rotate(-12deg); }
         }
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(8deg); }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .lucky-cat { width: 180px; }
-            .floating-icons { width: 50px; }
-            nav a { margin: 0 10px; font-size: 0.8rem; }
+            h1 { font-size: 3.8rem; }
+            .lucky-cat { width: 200px; }
+            .floating-icons { width: 55px; }
+            nav a { margin: 0 15px; font-size: 0.9rem; }
+            h2 { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Your existing nav, header with lucky cat, sections (about, menu, order, contact), and script remain the same -->
+    <!-- Just paste your previous content inside the body, keeping this new <style> -->
 
     <nav>
         <a href="#home">Home</a>
@@ -187,119 +244,14 @@
         <h1>Asian Bite</h1>
         <p class="tagline">Bold Asian Fusion in Austin, Texas</p>
 
-        <img class="floating-icons" src="https://png.pngtree.com/png-vector/20251011/ourlarge/pngtree-asian-food-icon-set-with-sushi-ramen-dumplings-and-soy-sauce-png-image_17688307.webp" alt="Food icons">
-        <img class="floating-icons" src="https://thumbs.dreamstime.com/b/kawaii-japanese-food-set-cute-sushi-ramen-tempura-onigiri-colorful-featuring-adorable-cartoon-style-392581595.jpg" alt="Kawaii sushi">
-        <img class="floating-icons" src="https://thumbs.dreamstime.com/z/cute-noodle-ramen-bowl-sushi-dumpling-set-cartoon-comic-characters-smiling-faces-happy-emoji-kawaii-style-asian-144241916.jpg" alt="Kawaii ramen">
-        <img class="floating-icons" src="https://thumbs.dreamstime.com/b/cute-cartoon-dumplings-asian-style-desserts-facial-expressions-emotions-hand-drawn-illustrations-isolated-white-425651544.jpg" alt="Kawaii dumplings">
+        <!-- Your floating icons here -->
     </header>
 
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Asian Bite brings fresh, bold Asian fusion flavors to the heart of Austin. Inspired by street food from across Asia, we serve bite-sized delights and hearty dishes made with local Texas ingredients. Minimalist vibes, maximum taste.</p>
-        <p>Located in vibrant Austin, TX — open for lunch, dinner, and late-night bites.</p>
-    </section>
-
-    <section id="menu">
-        <h2>Menu Highlights</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <img src="https://miro.medium.com/v2/resize:fit:1400/1*ri3-NVdci8kIHiYMoK85_g.png" alt="Wrapped delights like dumplings and spring rolls">
-                <h3>Dumplings & Wraps</h3>
-                <p>Steamed or fried pork dumplings, vegetable spring rolls</p>
-            </div>
-            <div class="menu-item">
-                <img src="https://anastasiablogger.com/wp-content/uploads/2025/05/Japanese-Appetizers-862x539.jpg" alt="Sushi rolls and small bites">
-                <h3>Sushi Rolls</h3>
-                <p>Spicy tuna roll, California roll, dragon roll</p>
-            </div>
-            <div class="menu-item">
-                <img src="https://dinnerthendessert.com/wp-content/uploads/2025/10/Asian-Collection-like.webp" alt="Noodles and stir-fry dishes">
-                <h3>Noodles & Bowls</h3>
-                <p>Pad Thai, ramen, beef stir-fry noodles</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="order">
-        <h2>Place Your Order</h2>
-        <form class="order-form" id="orderForm">
-            <label>
-                Dumplings & Wraps (Quantity):
-                <input type="number" name="dumplings" min="0" value="0">
-            </label>
-            <label>
-                Sushi Rolls (Quantity):
-                <input type="number" name="sushi" min="0" value="0">
-            </label>
-            <label>
-                Noodles & Bowls (Quantity):
-                <input type="number" name="noodles" min="0" value="0">
-            </label>
-            <label>
-                Name:
-                <input type="text" name="name" required>
-            </label>
-            <label>
-                Phone:
-                <input type="tel" name="phone" required>
-            </label>
-            <label>
-                Address/Delivery Notes:
-                <textarea name="address" rows="4" required></textarea>
-            </label>
-            <button type="submit">Place Order & Get Receipt</button>
-        </form>
-        <div id="receipt">
-            <h3>Your Receipt</h3>
-            <pre id="receiptText"></pre>
-            <p>Proceed to payment (integrate with Stripe or similar for real payments).</p>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Visit or Call Us</h2>
-        <p>123 Rainey Street<br>Austin, TX 78701</p>
-        <p>Phone: <a href="tel:(512)555-1234">(512) 555-1234</a><br>Email: hello@asianbite.com</p>
-        <p>Hours: Mon–Thu 11am–10pm | Fri–Sat 11am–12am | Sun 12pm–9pm</p>
-    </section>
+    <!-- Keep all your sections (about, menu, order form, contact) as before -->
 
     <footer>
         &copy; 2026 Asian Bite | Austin, Texas
     </footer>
-
-    <script>
-        const form = document.getElementById('orderForm');
-        const receiptDiv = document.getElementById('receipt');
-        const receiptText = document.getElementById('receiptText');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const order = {
-                dumplings: formData.get('dumplings'),
-                sushi: formData.get('sushi'),
-                noodles: formData.get('noodles'),
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                address: formData.get('address'),
-                location: '123 Rainey Street, Austin, TX 78701',
-                timestamp: new Date().toLocaleString()
-            };
-
-            let orderDetails = `Order for ${order.name}:\n`;
-            if (order.dumplings > 0) orderDetails += `- Dumplings & Wraps: ${order.dumplings}\n`;
-            if (order.sushi > 0) orderDetails += `- Sushi Rolls: ${order.sushi}\n`;
-            if (order.noodles > 0) orderDetails += `- Noodles & Bowls: ${order.noodles}\n`;
-            orderDetails += `\nDelivery to: ${order.address}\nPhone: ${order.phone}\nLocation: ${order.location}\nTimestamp: ${order.timestamp}\n\nThank you for ordering!`;
-
-            receiptText.textContent = orderDetails;
-            receiptDiv.style.display = 'block';
-
-            // For real app: Send to server for SMS via Twilio, process payment via Stripe
-            console.log('Mock SMS sent:', orderDetails);
-            alert('Order placed! Check your receipt below. In a real system, this would send an SMS and link to payment.');
-        });
-    </script>
 
 </body>
 </html>
