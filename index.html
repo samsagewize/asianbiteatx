@@ -13,6 +13,7 @@
             color: #f0f0f0;
             background-color: #000;
             line-height: 1.7;
+            padding-bottom: 100px; /* Space for bottom menu */
         }
 
         :root {
@@ -121,64 +122,55 @@
             text-shadow: 0 0 15px rgba(212, 0, 0, 0.3);
         }
 
-        /* Vibrant Menu Section */
+        /* Bottom App-Like Menu Tab Bar */
+        .bottom-menu-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid var(--red);
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+        .bottom-menu-item {
+            text-align: center;
+            color: #fff;
+            transition: color 0.3s;
+        }
+        .bottom-menu-item:hover, .bottom-menu-item.active {
+            color: var(--red);
+        }
+        .bottom-menu-item img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+            filter: brightness(1.2);
+        }
+        .bottom-menu-item span {
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        /* Menu Section with Full Image */
         #menu {
             background: linear-gradient(to bottom, #100000, #000);
-            padding: 140px 10%;
+            padding: 140px 10% 200px; /* Extra bottom padding for tab bar */
         }
         #menu h2 {
             font-size: 4rem;
-            margin-bottom: 100px;
+            margin-bottom: 60px;
         }
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 60px;
-        }
-        .menu-item {
-            background: rgba(15, 0, 0, 0.8);
-            padding: 50px 30px;
-            border-radius: 25px;
-            border: 2px solid transparent;
-            transition: all 0.5s ease;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-        }
-        .menu-item:hover {
-            transform: translateY(-20px);
-            border: 2px solid var(--red);
-            box-shadow: 0 25px 60px rgba(212, 0, 0, 0.4);
-            background: rgba(30, 0, 0, 0.7);
-        }
-        .menu-item img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
+        .full-menu-img {
+            max-width: 100%;
             border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.4s;
-        }
-        .menu-item:hover img {
-            transform: scale(1.05);
-        }
-        .menu-item h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            color: var(--red);
-            margin: 20px 0 15px;
-            text-shadow: 0 0 10px rgba(212, 0, 0, 0.3);
-        }
-        .menu-item .price {
-            font-size: 2rem;
-            color: var(--gold);
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .menu-item p {
-            font-size: 1.2rem;
-            color: #ddd;
-            line-height: 1.8;
+            box-shadow: 0 20px 60px rgba(212, 0, 0, 0.4);
+            border: 4px solid var(--red);
         }
 
         footer {
@@ -194,12 +186,8 @@
             .nav-menu { gap: 20px; flex-wrap: wrap; justify-content: center; }
 
             #hero h1 { font-size: 3.5rem; }
-            #menu { padding: 100px 5%; }
+            #menu { padding: 100px 5% 200px; }
             #menu h2 { font-size: 3rem; }
-            .menu-grid { gap: 40px; }
-            .menu-item { padding: 30px; }
-            .menu-item h3 { font-size: 2rem; }
-            .menu-item .price { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -229,39 +217,42 @@
         <a href="#order" class="hero-cta">Order Now</a>
     </section>
 
-    <!-- Other sections (about, etc.) -->
+    <!-- Other sections -->
 
     <section id="menu">
         <h2>Our Menu ♡</h2>
-        <div class="menu-grid">
-            <!-- Example items – replace with your actual menu from IMG_0669.jpeg -->
-            <div class="menu-item">
-                <img src="IMG_9602-removebg-preview.png" alt="Dumplings">
-                <h3>Dumplings & Wraps</h3>
-                <span class="price">$12 – $18</span>
-                <p>Steamed or fried pork dumplings, vegetable spring rolls – crispy, savory, and made fresh</p>
-            </div>
-            <div class="menu-item">
-                <img src="IMG_0970-removebg-preview.png" alt="Sushi Rolls">
-                <h3>Sushi Rolls</h3>
-                <span class="price">$14 – $20</span>
-                <p>Fresh spicy tuna, California, or dragon rolls with premium ingredients</p>
-            </div>
-            <div class="menu-item">
-                <img src="https://dinnerthendessert.com/wp-content/uploads/2025/10/Asian-Collection-like.webp" alt="Noodles">
-                <h3>Noodles & Bowls</h3>
-                <span class="price">$15 – $22</span>
-                <p>Warm Pad Thai, tonkotsu ramen, or beef stir-fry noodles – comforting and bold</p>
-            </div>
-            <!-- Add more items based on your photo -->
-        </div>
+        <img src="IMG_0669.jpeg" alt="Asian Bite Full Menu" class="full-menu-img">
     </section>
 
-    <!-- Order, Contact, Footer -->
+    <!-- Order, Contact -->
 
     <footer>
         &copy; 2026 Asian Bite ♡ Home Kitchen | Austin, Texas
     </footer>
+
+    <!-- Bottom App-Like Menu Bar -->
+    <div class="bottom-menu-bar">
+        <a href="#hero" class="bottom-menu-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">
+            <span>Home</span>
+        </a>
+        <a href="#about" class="bottom-menu-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="About">
+            <span>About</span>
+        </a>
+        <a href="#menu" class="bottom-menu-item active">
+            <img src="https://cdn-icons-png.flaticon.com/512/3076/3076042.png" alt="Menu">
+            <span>Menu</span>
+        </a>
+        <a href="#order" class="bottom-menu-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081981.png" alt="Order">
+            <span>Order</span>
+        </a>
+        <a href="#contact" class="bottom-menu-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Contact">
+            <span>Contact</span>
+        </a>
+    </div>
 
 </body>
 </html>
